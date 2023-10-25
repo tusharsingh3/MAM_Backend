@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "Tv9HmO7rNG6QSdRfTmRxF7CHJlxzfgefhyhp3ZVVtzVm50GjDbzLfVXF9eKqIQKUUmTfvEUhFrBfSZNo0G3C/g==",
+  "success": true,
+  "projectFilePath": "/Users/tusharsingh/Desktop/Projects/MAM_Backend/MAM.backend/MAM.backend.csproj",
+  "expectedPackageFiles": [
+    "/Users/tusharsingh/.nuget/packages/microsoft.aspnetcore.openapi/7.0.11/microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
+    "/Users/tusharsingh/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/tusharsingh/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/tusharsingh/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/Users/tusharsingh/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/Users/tusharsingh/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/Users/tusharsingh/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
