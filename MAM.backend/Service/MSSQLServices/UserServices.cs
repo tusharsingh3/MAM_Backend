@@ -3,11 +3,11 @@ using MAM.backend.Service.ServiceManager;
 
 namespace MAM.backend.Service.MSSQLServices
 {
-    public class UserServices : UserManager
-    {
-        public UserServices(DBManager dbmanager) : base(dbmanager)
-        {
+	public class UserServices : UserManager
+	{
+		public UserServices(DBManager dbmanager) : base(dbmanager)
+		{
 
-        }
-    }
+		}
+	}
 }

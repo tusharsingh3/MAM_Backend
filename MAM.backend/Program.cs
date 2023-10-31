@@ -10,8 +10,8 @@ builder.Services.AddControllers();
 Tuple<DBManager, bool> dbmanager = new DBFactory().CreateDatabase("mysql", "Server=127.0.0.1;Port=3306;Database=test;User=root;Password=admin;");
 
 if (dbmanager.Item2 == true)
-{ 
-    builder.Services.AddScoped<UserManager>(provider => new ServiceFactory(dbmanager.Item1).CreateUserService("mysql"));
+{
+	builder.Services.AddScoped<UserManager>(provider => new ServiceFactory(dbmanager.Item1).CreateUserService("mysql"));
 }
 
 builder.Services.AddEndpointsApiExplorer();
@@ -22,8 +22,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

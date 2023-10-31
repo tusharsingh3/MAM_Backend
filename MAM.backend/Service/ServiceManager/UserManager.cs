@@ -1,19 +1,18 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 using MAM.backend.Database;
 using MAM.backend.Model;
 
 namespace MAM.backend.Service.ServiceManager
 {
-    public abstract class UserManager
-    {
-        private DBManager _dbmanager;
-        public UserManager(DBManager dbmanager)
-        {
-            _dbmanager = dbmanager;
-        }
-        public virtual List<User> GetAll() 
-        {
+	public abstract class UserManager
+	{
+		private DBManager _dbmanager;
+		public UserManager(DBManager dbmanager)
+		{
+			_dbmanager = dbmanager;
+		}
+		public virtual List<User> GetAll()
+		{
 			List<User> result = new List<User>();
 			try
 			{
@@ -37,5 +36,5 @@ namespace MAM.backend.Service.ServiceManager
 			}
 			return result;
 		}
-    }
+	}
 }

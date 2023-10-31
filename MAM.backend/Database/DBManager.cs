@@ -28,12 +28,12 @@ namespace MAM.backend.Database
 				}
 			}
 			catch (Exception ex)
-			{ 
+			{
 				isValid = false;
 				Console.WriteLine("DATABASE CONNECTION VERIFICATION FAILED");
 			}
-			
-			
+
+
 			return isValid;
 
 
@@ -49,7 +49,7 @@ namespace MAM.backend.Database
 					result = GetDataSet(command);
 				}
 			}
-			catch(Exception ex) 
+			catch (Exception ex)
 			{
 				Console.WriteLine($"ERROR IN GET_DATA_SET :: {query} :: EXCEPTION MESSAGE :: {ex.Message}");
 			}
@@ -70,7 +70,7 @@ namespace MAM.backend.Database
 			{
 				Console.WriteLine($"ERROR IN GET_DATA_TABLE :: {query} :: EXCEPTION MESSAGE :: {ex.Message}");
 			}
-			
+
 			return result;
 		}
 
@@ -88,7 +88,7 @@ namespace MAM.backend.Database
 			{
 				Console.WriteLine($"ERROR IN GET_READER :: {query} :: EXCEPTION MESSAGE :: {ex.Message}");
 			}
-			
+
 			return result;
 
 			//IDbConnection connection = CreateConnection();
@@ -119,7 +119,7 @@ namespace MAM.backend.Database
 			{
 				Console.WriteLine($"ERROR IN GET_DATA_SET :: {command} :: EXCEPTION MESSAGE :: {ex.Message}");
 			}
-			
+
 			return dataSet;
 
 		}
@@ -160,14 +160,14 @@ namespace MAM.backend.Database
 				IDbConnection connection = CreateConnection();
 				connection.Open();
 				command.Connection = connection;
-				reader =  command.ExecuteReader();
+				reader = command.ExecuteReader();
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine($"ERROR IN GET_READER :: {command} :: EXCEPTION MESSAGE :: {ex.Message}");
 			}
 			return reader;
-			
+
 		}
 
 		public virtual object ExecuteScalar(string query)
