@@ -1,4 +1,6 @@
-﻿using MAM.backend.Database;
+﻿using System.Data;
+using System.Data.SqlClient;
+using MAM.backend.Database;
 using MAM.backend.Model;
 
 namespace MAM.backend.Service.ServiceManager
@@ -12,8 +14,28 @@ namespace MAM.backend.Service.ServiceManager
         }
         public virtual List<User> GetAll() 
         {
-            string query = "SELECT * FROM USER";
-            return new List<User>();
-        }
+			List<User> result = new List<User>();
+			try
+			{
+				string query = "SELECT * FROM User;";
+				var command = _dbmanager.CreateCommand(query);
+				DataTable dataTable = _dbmanager.GetDataTable(command);
+				foreach (DataRow row in dataTable.AsEnumerable())
+				{
+					User user = new()
+					{
+						Id = row.Field<int>("Id"),
+						Email = row.Field<string>("Email"),
+						Name = row.Field<string>("Name")
+					};
+					result.Add(user);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"ERROR IN GET_ALL_BALL_CHANGE :: EXCEPTION MESSAGE :: {ex.Message}");
+			}
+			return result;
+		}
     }
 }
