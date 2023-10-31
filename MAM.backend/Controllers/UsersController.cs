@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MAM.backend.Service.ServiceManager;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MAM.backend.Controllers;
 
@@ -7,16 +8,20 @@ namespace MAM.backend.Controllers;
 public class UsersController : ControllerBase
 {
 	private readonly ILogger<UsersController> _logger;
+	private readonly UserManager _userManager;
 
-	public UsersController(ILogger<UsersController> logger)
+    public UsersController(ILogger<UsersController> logger, UserManager userManager)
 	{
 		_logger = logger;
+		_userManager = userManager;
 	}
 
 	[HttpGet("GetUsers")]
     public IEnumerable<Users> Get()
     {
-		return Enumerable.Range(1, 5).Select(index => new Users
+		_userManager.GetAll();
+
+        return Enumerable.Range(1, 5).Select(index => new Users
 		{
 			FirstName = string.Empty,
 			LastName = string.Empty,
