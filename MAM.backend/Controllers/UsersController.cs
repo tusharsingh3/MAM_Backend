@@ -1,4 +1,5 @@
-﻿using MAM.backend.Service.ServiceManager;
+﻿using MAM.backend.Model;
+using MAM.backend.Service.ServiceManager;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MAM.backend.Controllers;
@@ -10,37 +11,25 @@ public class UsersController : ControllerBase
 	private readonly ILogger<UsersController> _logger;
 	private readonly UserManager _userManager;
 
-    public UsersController(ILogger<UsersController> logger, UserManager userManager)
+	public UsersController(ILogger<UsersController> logger, UserManager userManager)
 	{
 		_logger = logger;
 		_userManager = userManager;
 	}
 
 	[HttpGet("GetUsers")]
-    public IEnumerable<Users> Get()
-    {
-		_userManager.GetAll();
-
-        return Enumerable.Range(1, 5).Select(index => new Users
-		{
-			FirstName = string.Empty,
-			LastName = string.Empty,
-			Age = 10
-		})
-		.ToArray();
-
-	}
-
-	[HttpPost(Name = "PostUser")]
-	public IEnumerable<Users> Post()
+	public IActionResult Get()
 	{
-		return Enumerable.Range(1, 5).Select(index => new Users
+		List<User> result = new List<User>();
+		try
 		{
-			FirstName = "test",
-			LastName = string.Empty,
-			Age = 10
-		})
-		.ToArray();
+			result = _userManager.GetAll();
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"ERROR IN GET_ALL_BALL_CHANGE :: EXCEPTION MESSAGE :: {ex.Message}");
+		}
+		return Ok(result);
 
 	}
 }
